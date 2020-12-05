@@ -29,8 +29,11 @@
   <div class='login-btn'>
     <%= f.submit "ログイン" ,class:"login-red-btn" %>
   </div>
-</div>
-<% end %>
+  </div>
+  <% end %>
+  <div class="py-5 text-center container">
+    <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+  </div>
 </section>
 
 <%= render "shared/footer"%>
