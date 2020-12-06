@@ -1,0 +1,57 @@
+<%= render "shared/header" %>
+  <section class="py-5">
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">投稿内容の入力をお願いします</h2>
+    <%= form_with(model: @tweet, local: true) do |f|%>
+
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        タイトル
+        <span id="count1", class="float_center">50</span>文字
+      </div>
+      <%= f.text_field :title, class:"items-text", id:"text_check_1", placeholder:"タイトルを決めてください",maxlength:"50" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          記事の説明
+          <span class="indispensable">必須</span>
+          <span id="count2">140</span>文字
+        </div>
+        <%= f.text_area :text, class:"items-text", id:"item-info", id:"text_check_2", placeholder:"説明" ,rows:"5" ,maxlength:"140" %>
+      </div>
+    </div>
+
+    <div>
+  <p>
+    <%= f.label :category, 'カテゴリ選択' %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %> 
+      <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
+  </p>
+  </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</section>
+<%= render "shared/footer" %>
