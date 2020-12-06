@@ -1,2 +1,0 @@
-class CreateTweetCategoryRelation < ApplicationRecord
-end
