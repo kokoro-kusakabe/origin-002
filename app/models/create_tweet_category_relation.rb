@@ -1,0 +1,2 @@
+class CreateTweetCategoryRelation < ApplicationRecord
+end
