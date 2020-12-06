@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show, :new_guest]
+
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
     user.password = SecureRandom.urlsafe_base64
