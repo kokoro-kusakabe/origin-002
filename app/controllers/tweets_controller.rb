@@ -13,6 +13,21 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
+  def new
+    @tweet = Tweet.new
+    @categories = Category.all
+  end
+
+  def create
+    @categories = Category.all
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 
 
 end
