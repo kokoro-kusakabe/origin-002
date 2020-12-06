@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/origin-002
+      - bundle:/usr/local/bundle
+    tty: true
+    stdin_open: true
+    links:
+      - db
+  
+  db:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "4306:3306"
+
+volumes:
+  mysql-data:
+  bundle:
