@@ -12,22 +12,24 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @tweets = Tweet.all
+    @tweet = Tweet.includes(:user).limit(6).order("created_at DESC")
   end
 
   def new
     @tweet = Tweet.new
-    @categories = Category.all
   end
 
   def create
-    @categories = Category.all
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @tweet = Tweet.find(params[:id])
   end
 
   private
