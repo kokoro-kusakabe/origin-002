@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :new_guest]
+  before_action :set_action, only: [:edit, :update, :show]
 
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
@@ -29,7 +30,24 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
+  end
+
+  def edit
+  end
+  
+
+  def update
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path
+    else 
+      render :edit
+    end
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to root_path
   end
 
   private
@@ -38,6 +56,9 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:title, :text, :image, category_ids: []).merge(user_id: current_user.id)
   end
 
+  def set_action
+    @tweet = Tweet.find(params[:id])
+  end
 
 
 end
