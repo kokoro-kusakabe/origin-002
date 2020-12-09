@@ -1,15 +1,15 @@
 <header class='top-page-header'>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-  <%= link_to(root_path, class: "text-reset text-decoration-none") do %>
+    <%= link_to(root_path, class: "text-reset text-decoration-none") do %>
     <div class="navbar-brand">SHARE LINK</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  <% end %>
+    <% end %>
     <div class="collapse navbar-collapse" id="navbarCollapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto mb-2 mb-md-0">
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item active">
           <div class="nav-link" aria-current="page" ><%= link_to "#{current_user.nickname}", "#", class: "text-reset text-decoration-none" %></div>
         </li>
@@ -27,6 +27,14 @@
           <div class="nav-link"><%= link_to 'ログイン', new_user_session_path, class: "text-reset text-decoration-none" %></div>
         </li>
       <% end %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-expanded="false">カテゴリ</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown01">
+          <% @categories.each do |category| %>
+            <li class="dropdown-item"><%= link_to "#{category.name}", category_path(category.id), class: "text-reset text-decoration-none"  %></li>
+          <% end %>
+          </ul>
+        </li>
     </ul>
     </div>
   </div>

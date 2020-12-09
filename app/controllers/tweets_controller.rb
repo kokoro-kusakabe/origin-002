@@ -1,7 +1,9 @@
 class TweetsController < ApplicationController
 
+  include CommonActions
   before_action :authenticate_user!, except: [:index, :show, :new_guest]
   before_action :set_action, only: [:edit, :update, :show]
+  before_action :set_categories
 
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
@@ -59,6 +61,5 @@ class TweetsController < ApplicationController
   def set_action
     @tweet = Tweet.find(params[:id])
   end
-
 
 end
