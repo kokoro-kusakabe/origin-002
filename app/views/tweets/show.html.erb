@@ -49,10 +49,13 @@
           <% end %>
           </div>
         <% end %>
-        <ul class="messages ">
+        <% unless @tweet.comments == nil%>
+        <ul class="messages " >
+          <li>コメントリスト</li>
           <% @comments.each do |comment| %>
           <li class="message" ><p><%= comment.text %></p></li> 
           <% end %>
+        <% end %>
         </ul>
       </div>
     </div>
