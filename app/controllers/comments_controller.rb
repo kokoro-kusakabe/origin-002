@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
 
+  include CommonActions
+  before_action :set_categories
+  
   def create
     @comment = Comment.new(comment_params)
 
