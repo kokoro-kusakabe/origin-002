@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root to: "tweets#index"
   
   resources :users, only: :new
-  resources :tweets
+  resources :tweets do
+    resources :comments, only: :create
+  end
+  
   resources :categories, only: :show
 end
