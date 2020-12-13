@@ -1,0 +1,42 @@
+<%= render "shared/header" %>
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5 text-center">
+      <% @entries.each do |e| %>
+      <h1><%= e.user.nickname %>さんへのDM</h1>
+      <% end %>
+    </div>
+
+
+    <div>
+      <% if @messages.present? %>
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">投稿内容</th>
+            <th scope="col">投稿時間</th>
+          </tr>
+        </thead>
+        <% @messages.each do |m| %>
+        <tr class="text-center">
+          <td><%= m.content %></td>
+          <td><%= m.created_at %></td>
+          </tr>
+        <% end %>
+        </table>
+      <% else %>
+        <h3 class="text-center">メッセージはまだありません</h3>
+      <% end %>
+
+      <div class="row py-lg-5 text-center">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 80%>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <br>
+        <%= f.submit "投稿する" %>
+      <% end %>
+      </div>
+    </div>
+</section>
+
+<%= render "shared/footer" %>

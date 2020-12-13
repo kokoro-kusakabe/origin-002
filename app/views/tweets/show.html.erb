@@ -7,7 +7,7 @@
         <p class="prototype__hedding pt-5">
           <%= @tweet.title %>
         </p>
-        <%= link_to "by #{@tweet.user.nickname}", "#", class: :prototype__user %>
+        <%= link_to "by #{@tweet.user.nickname}", "/users/#{@tweet.user.id}", class: :prototype__user %>
 
         <% if user_signed_in? && current_user.id == @tweet.user_id %>
         <div class="prototype__manage">
