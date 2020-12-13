@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   post '/tweets/guest_sign_in', to: 'tweets#new_guest'
   root to: "tweets#index"
   
-  resources :users, only: :new
+  resources :users, only: [:new , :show]
   resources :tweets do
     resources :comments, only: :create
   end
   
   resources :categories, only: :show
+
+  resources :messages, only: :create
+  resources :rooms, only: [:create, :show]
 end
