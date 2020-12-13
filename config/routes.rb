@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: :show
+
+  resources :messages, only: :create
+  resources :rooms, only: [:create, :show]
 end
