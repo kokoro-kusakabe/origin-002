@@ -11,7 +11,7 @@ script:
   - docker-compose exec --env 'RAILS_ENV=test' app rails db:migrate
   - docker-compose exec --env 'RAILS_ENV=test' app rails db:seed
   - docker-compose exec --env 'RAILS_ENV=test' app bundle exec rspec spec/models/user_spec.rb
-  - docker-compose exec --env 'RAILS_ENV=test' app bundle exec spec/system/users_spec.rb
+  - docker-compose exec --env 'RAILS_ENV=test' app bundle exec rspec spec/system/users_spec.rb
 
 deploy:
   provider: script
