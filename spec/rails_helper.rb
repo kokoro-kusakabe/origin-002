@@ -31,7 +31,7 @@ Capybara.register_driver :remote_chrome do |app|
     "goog:chromeOptions" => {
       "args" => [
         "no-sandbox",
-        
+        "headless",
         "disable-gpu",
         "window-size=1680,1050"
       ]
@@ -59,7 +59,6 @@ RSpec.configure do |config|
   end
 
   config.include SignInSupport
-  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
