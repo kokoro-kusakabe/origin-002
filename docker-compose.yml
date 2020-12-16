@@ -12,6 +12,13 @@ services:
     stdin_open: true
     links:
       - db
+    depends_on:
+      - chrome
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - 4444:4444
+
   
   db:
     image: mysql:5.6
