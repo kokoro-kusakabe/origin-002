@@ -3,11 +3,10 @@
 <h2 align="center">SHARE LINK</h2>
 
 <p align="center">
-  <a href="https://rubyonrails.org"><img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_rails_icon_130210.png" width="80px;"></a>
-  <br>
-  <a href="https://jp.heroku.com"><img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/heroku_original_wordmark_logo_icon_146482.png" height="45px;" /></a>
-  <a href="https://www.docker.com"><img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_docker_icon_130643.png" height="45px;" /></a>
-  <a href="https://travis-ci.com"><img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/travisci_logo_icon_144792.png" height="40px;" /></a>
+  <a href="https://rubyonrails.org"><img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_rails_icon_130210.png" height="60px;"></a>
+  <a href="https://jp.heroku.com"><img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/heroku_original_wordmark_logo_icon_146482.png" height="60px;" /></a>
+  <a href="https://www.docker.com"><img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_docker_icon_130643.png" height="60px;" /></a>
+  <a href="https://travis-ci.com"><img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/travisci_logo_icon_144792.png" height="60px;" /></a>
 </p>
 
 ## 🌐 App URL
