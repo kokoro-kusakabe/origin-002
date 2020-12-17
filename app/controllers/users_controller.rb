@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   include CommonActions
   before_action :set_categories
 
@@ -26,5 +25,17 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
   end
 end

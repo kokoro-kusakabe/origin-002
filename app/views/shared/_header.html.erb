@@ -11,7 +11,7 @@
     <ul class="navbar-nav mr-auto mb-2 mb-md-0">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <div class="nav-link" aria-current="page" ><%= link_to "#{current_user.nickname}", "#", class: "text-reset text-decoration-none" %></div>
+          <div class="nav-link" aria-current="page" ><%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "text-reset text-decoration-none" %></div>
         </li>
         <li class="nav-item">
           <div class="nav-link"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "text-reset text-decoration-none" %></div>

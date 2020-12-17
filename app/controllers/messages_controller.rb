@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   include CommonActions
   before_action :set_categories
   before_action :authenticate_user!, only: :create

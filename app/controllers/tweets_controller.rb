@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-
   include CommonActions
   before_action :authenticate_user!, except: [:index, :show, :new_guest]
   before_action :set_action, only: [:edit, :update, :show]
@@ -7,15 +6,15 @@ class TweetsController < ApplicationController
 
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-    user.password = SecureRandom.urlsafe_base64
-    user.nickname = "guest"
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = 'guest'
     end
     sign_in user
     redirect_to root_path
   end
 
   def index
-    @tweet = Tweet.includes(:user).limit(6).order("created_at DESC")
+    @tweet = Tweet.includes(:user).limit(6).order('created_at DESC')
   end
 
   def new
@@ -38,12 +37,11 @@ class TweetsController < ApplicationController
 
   def edit
   end
-  
 
   def update
     if @tweet.update(tweet_params)
       redirect_to tweet_path
-    else 
+    else
       render :edit
     end
   end
@@ -63,5 +61,4 @@ class TweetsController < ApplicationController
   def set_action
     @tweet = Tweet.find(params[:id])
   end
-
 end
