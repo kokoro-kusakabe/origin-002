@@ -1,14 +1,13 @@
 class RelationshipsController < ApplicationController
-
   include CommonActions
   before_action :set_categories
-  
+
   before_action :set_user
 
   def create
     following = current_user.follow(@user)
     if following.save
-      flash[:success] = "ユーザーをフォローしました"
+      flash[:success] = 'ユーザーをフォローしました'
       redirect_to @user
     else
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
@@ -28,6 +27,7 @@ class RelationshipsController < ApplicationController
   end
 
   private
+
   def set_user
     @user = User.find(params[:follow_id])
   end
