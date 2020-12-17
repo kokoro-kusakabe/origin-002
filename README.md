@@ -5,9 +5,9 @@
 <p align="center">
   <a href="https://rubyonrails.org"><img src="https://rubyonrails.org.png" width="80px;" /></a>
   <br>
-  <a href="heroku公式サイトURL"><img src="https://jp.heroku.com.png" height="45px;" /></a>
-  <a href="docker公式サイトURL"><img src="https://www.docker.com.png" height="45px;" /></a>
-  <a href="travisCI公式サイトURL"><img src="https://travis-ci.com.png" height="40px;" /></a>
+  <a href="https://jp.heroku.com"><img src="https://jp.heroku.com.png" height="45px;" /></a>
+  <a href="https://www.docker.com"><img src="https://www.docker.com.png" height="45px;" /></a>
+  <a href="https://travis-ci.com"><img src="https://travis-ci.com.png" height="40px;" /></a>
 </p>
 
 ## 🌐 App URL
