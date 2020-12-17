@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<section class="py-5 text-center container">
+<h1 class="pt-5"><%= "#{@user.nickname}のフォロワーリスト" %></h1>
+<% if @user.followers.count == 0 %>
+<% else %>
+<table class="table table-striped pt-5">
+ <thead>
+    <tr>
+      <th scope="col">ユーザー名</th>
+    </tr>
+  </thead>
+  <% @user.followers.each do |user| %>
+  <tr scope="row">
+    <td><%= link_to user.nickname, user_path(user) %></td>
+  </tr>
+  <% end %>
+  </table>
+  <% end %>
+</section>
+<%= render "shared/footer", class: "fixed-bottom" %>
